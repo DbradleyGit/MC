@@ -1,114 +1,130 @@
 ﻿@{
-    ViewBag.Title = "Cycles";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Cycles";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Index</h2>
-@using (Html.BeginForm())
+@using ( Html.BeginForm() )
 {
-    @Html.AntiForgeryToken()
-    <h4>tmodel</h4>
-    <div>
-        @Html.Label("myMotorcycles", "My Motorcycles")
-        <br />
-    </div>
+	@Html.AntiForgeryToken()
+	<p />
+	<div class="well" style="text-align:center">
+		@Html.Label("myMotorcycles", "My Motorcycles")
+		<br />
+	</div>
+	<div class="row">
+		<div class="col-sm-2">
+			<year>
+				Year:
+				<select>
+					@*@foreach ( SelectListItem @item in ViewBag.year_id )
+					{
+						<option>@item.Value</option>
+					}*@
+				</select>
+			</year>
+		</div>
+		<div class="col-sm-2">
+			<make>
+				Make:
+				<select style="margin-left:5px">
+					<option>Yamaha</option>
+					<option>Suzuki</option>
+					<option>Honda</option>
+				</select>
+			</make>
+		</div>
+		<div class="col-sm-2">
+			<model>
+				Model:
+				<select>
+					<option>YR1</option>
+					<option>YR2</option>
+					<option>YR3</option>
+					<option>RD350</option>
+					<option>RD400</option>
+					<option>RZ350</option>
+					<option>RZ500</option>
+				</select>
+			</model>
+		</div>
+		<div class="col-sm-2">
+			<button class="btn-group-sm">@Html.ActionLink("Add", "Create", "tmodels")</button>
+		</div>
+	</div>
+	<br />
+	<div class="table table-bordered">
+		<div class="row">
+			<div class="col-sm-1">Year</div>
+			<div class="col-sm-1">Make</div>
+			<div class="col-sm-1">Model</div>
+		</div>
 
-    <make>
-        Make:
-        <select style="margin-left:5px">
-            <option>Yamaha</option>
-            <option>Suzuki</option>
-            <option>Honda</option>
-        </select>
-    </make>
-    <br />
-    <year>
-        Year:
-        <select style="margin-left:10px">
-            @foreach (SelectListItem @item in ViewBag.year_id)
-            {
-                <option>@item.Value</option>
-            }
-        </select>
-    </year>
-    <br />
-    <model>
-        Model:
-        <select>
-            <option>YR1</option>
-            <option>YR2</option>
-            <option>YR3</option>
-            <option>RD350</option>
-            <option>RD400</option>
-            <option>RZ350</option>
-            <option>RZ500</option>
-        </select>
-    </model>
-    <br />
-    <div class="form-group-sm">
-        <div class="row">
-            <div class="col-md-3">
-                <h2>Motorcycles</h2>
-                <ul>
-                    <li>Buying</li>
-                    <li>Selling</li>
-                    <li>Renting</li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h2>Parts</h2>
-                <ul>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">All</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Search</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Engine</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Frame</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Suspension</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Controls</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Electrical</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Exhaust</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Wheels</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h2>Services</h2>
-                <ul>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Engine Polishing</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Custom Exhaust Systems</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Performance Parts</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Lighting for your bike.</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Apperal</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Motorcycle painting</a></li>
-                    <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Powder Coating</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h2>Everything Else</h2>
-                <ul>
-                    <li><a href="2 Stroke Fourm">2 Stroke Fourm</a></li>
-                    <li><a href="">GS Resources</a></li>
-                    <li><a href="">Motorcycles on Pinerst</a></li>
-                    <li><a href="">My Profile</a></li>
-                    <li><a href="">Notes from David</a></li>
-                    <li><a href="">Events</a></li>
 
-                </ul>
-            </div>
-        </div>
-        <div>
-            <p>
-                Learn how to build ASP.NET apps that can run anywhere.
-                <a class="btn btn-default" href="BikeModelView">
-                    Learn More
-                </a>
-            </p>
-        </div>
+	</div>
 
-    </div>
+	<div class="form-group-sm">
+		<div class="row">
+			<div class="col-md-3">
+				<h2>Motorcycles</h2>
+				<ul>
+					<li><a href="https://www.ebay.com">Buying</a></li>
+					<li>Selling</li>
+					<li>Renting</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h2>Parts</h2>
+				<ul>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">All</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Search</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Engine</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Frame</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Suspension</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Controls</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Electrical</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Exhaust</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Wheels</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h2>Services</h2>
+				<ul>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Engine Polishing</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Custom Exhaust Systems</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Performance Parts</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Lighting for your bike.</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Apperal</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Motorcycle painting</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Powder Coating</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h2>Everything Else</h2>
+				<ul>
+					<li><a href="2 Stroke Fourm">2 Stroke Fourm</a></li>
+					<li><a href="">GS Resources</a></li>
+					<li><a href="">Motorcycles on Pinerst</a></li>
+					<li><a href="">My Profile</a></li>
+					<li><a href="">Notes from David</a></li>
+					<li><a href="">Events</a></li>
+
+				</ul>
+			</div>
+		</div>
+		<div>
+			<p>
+				Learn how to build ASP.NET apps that can run anywhere.
+				<a class="btn btn-default" href="BikeModelView">
+					Learn More
+				</a>
+			</p>
+		</div>
+	</div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+	@Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/jqueryval")
 }
